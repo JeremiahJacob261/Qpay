@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './components/Home';
 import Create from './components/Create';
+import Main from './components/main';
 import Email from './components/Email';
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -25,6 +26,11 @@ const App = () => {
         <Stack.Screen
           name="/email"
           component={Email}
+          options={{ headerShown: false, headerTintColor: '#FF9F1C' }}
+        />
+         <Stack.Screen
+          name="/user"
+          component={Main}
           options={{ headerShown: false, headerTintColor: '#FF9F1C' }}
         />
       </Stack.Navigator>

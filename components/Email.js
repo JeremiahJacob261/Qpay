@@ -30,11 +30,22 @@ export default function Email({navigation}){
       }
       async function signInWithEmail() {
         setLoading(true)
-        signInWithEmailAndPassword 
-    
+        signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+    navigation.navigate('/user')
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
         if (error) {
           alert(error.message)
         setLoading(false)}
+  });
+ 
+    
       }
     //aqnn
       async function signUpWithEmail() {
@@ -45,6 +56,8 @@ export default function Email({navigation}){
     const user = userCredential.user;
     // ...
     sendEmailVerification(auth.currentUser)
+    
+    navigation.navigate('/user')
   .then(() => {
     // Email verification sent!
     // ...
