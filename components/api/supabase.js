@@ -1,17 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-const options = {
-    db: {
-      schema: 'public',
-    },
-    auth: {
-      autoRefreshToken: true,
-      persistSession: true,
-      detectSessionInUrl: true
-    },
-    global: {
-      headers: { 'x-my-custom-header': 'my-app-name' },
-    },
-  }
-const supabaseUrl = 'https://aidkzrgsgrfotjiouxto.supabase.co'
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZGt6cmdzZ3Jmb3RqaW91eHRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg0MDgzMDIsImV4cCI6MTk4Mzk4NDMwMn0.5AHgOKn1bYRQRRB27SmhCI8YhZCjDcwOA85kn-LvkGo"
-export const supabase = createClient(supabaseUrl, supabaseKey)
+
+const supabaseUrl = 'https://rmplfytqriyigrkknmgo.supabase.co'
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtcGxmeXRxcml5aWdya2tubWdvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzI0MTU0MDEsImV4cCI6MTk4Nzk5MTQwMX0.o77v5k-KPEA0pTwxFyKthT45x7BdSe5D22cDbhQlkMs"
+export const supabase = createClient(supabaseUrl,supabaseKey)

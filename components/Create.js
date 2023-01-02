@@ -5,10 +5,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AntDesign } from '@expo/vector-icons';
 import Constants from 'expo-constants';
+import {supabase} from './api/supabase'
 import { useFonts, Poppins_400Regular,Poppins_600SemiBold,Poppins_300Light,Poppins_200ExtraLight } from '@expo-google-fonts/poppins';
 
 export default function Create({navigation}){
-  const [phone,setPhone] = useState(0)
+  const [phone,setPhone] = useState()
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_600SemiBold,
@@ -41,6 +42,7 @@ export default function Create({navigation}){
     <TextInput
 placeholder="(000) 000000"
 multiline={false}
+type='number'
 keyboardType='phone-pad'
 style={{backgroundColor:'whitesmoke',width:200,margin:8,
 height:45,borderRadius:2,borderWidth:0.5,padding:8,letterSpacing:3}}
@@ -56,7 +58,17 @@ setPhone(p)}
 <AntDesign name="infocirlce" size={24} color="black" />
 </View>
 <View style={styles.but}  onPress={() => navigation.navigate('/create')}>
-     <Text style={styles.buttext}  onPress={() => navigation.navigate('/create')}>
+     <Text style={styles.buttext}  onPress={() => {
+      const receiveotp=async()=>{
+let { data, error } = await supabase.auth.signInWithOtp({
+  phone: '+2348140092501'
+})
+
+console.log(data)
+console.log(error)
+      }
+      receiveotp()
+     }}>
     Receive OTP
      </Text>
      </View>
@@ -76,14 +88,13 @@ const styles = StyleSheet.create({
      width:'100%',
       justifyContent: 'center',
       alignItems:'center',
-      borderRadius:5,
-      height:50
+      borderRadius:5
   },
   buttext:{
     color:'white',
      fontFamily: 'Poppins_400Regular',
      fontSize:12,
-    padding:5,
+     padding:12,
     width:'100%',
     textAlignVertical: 'center',
     textAlign:'center',

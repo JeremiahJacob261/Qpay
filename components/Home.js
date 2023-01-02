@@ -69,14 +69,13 @@ but:{
    width:'100%',
     justifyContent: 'center',
     alignItems:'center',
-    borderRadius:5,
-    height:50
+    borderRadius:5
 },
 buttext:{
   color:'white',
    fontFamily: 'Poppins_400Regular',
    fontSize:12,
-  padding:5,
+   padding:12,
   width:'100%',
   textAlignVertical: 'center',
   textAlign:'center',
